@@ -1,0 +1,24 @@
+﻿@model ImagenZapatilla
+
+@{
+    int numeroregistros =(int)ViewData["REGISTROS"];
+    int posicion = (int)ViewData["POSICION"];
+}
+
+<div class="card text-center">
+  <div class="card-header">
+    <p>Imagen @posicion de @numeroregistros</p>
+    <div>
+        <button onclick="llamaPagina(1,@Model.IdProducto)">Primero</button>
+        <button onclick="llamaPagina(@posicion-1,@Model.IdProducto)">Anterior</button>
+        <button onclick="llamaPagina(@posicion+1,@Model.IdProducto)">Siguiente</button>
+        <button onclick="llamaPagina(@numeroregistros,@Model.IdProducto)">Ultimo</button>
+    </div>
+  </div>
+  <div class="card-body">
+    <img src="@Model.Imagen" width="150px" height="150px" />
+  </div>
+  <div class="card-footer text-muted">
+    <a asp-action="VistaZapatillas" asp-controller="Zapatillas">Volver a index</a>
+  </div>
+</div>
